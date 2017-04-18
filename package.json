@@ -1,1 +1,40 @@
-{     "devDependencies": {         "geddy": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-geddy",     "homepage": "https://github.com/npmtest/node-npmtest-geddy",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-geddy.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "test coverage for [geddy (v13.0.8)](https://github.com/geddy/geddy#readme) [![npm package](https://img.shields.io/npm/v/npmtest-geddy.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-geddy) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-geddy.svg)](https://travis-ci.org/npmtest/node-npmtest-geddy)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "geddy": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-geddy",
+    "keywords": [
+        "coverage",
+        "test",
+        "geddy"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_geddy.js",
+    "name": "npmtest-geddy",
+    "nameAlias": "npmtest_geddy",
+    "nameOriginal": "npmtest-geddy",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-geddy.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
